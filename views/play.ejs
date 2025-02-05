@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    color: #2d3436;
+    line-height: 1.6;
+  }
+  
+  .wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .player-header {
+    background-color: #0984e3;
+    color: #ffffff;
+    padding: 1.5rem 0;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .player-nav .player-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .player-nav .player-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .create-session-form,
+  .sessions-list {
+    margin-top: 1.5rem;
+  }
+  
+  .btn {
+    background-color: #00cec9;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .cancel-btn {
+    background-color: #d63031;
+  }
+  
+  .cancelled {
+    color: #d63031;
+    font-weight: bold;
+  }
+  
+    </style>
+</head>
+<body>
+  <h1 class="dashboard-title">Welcome, <%= users.name %>!</h1>
+    <header class="player-header">
+        <div class="wrapper">
+          <h1 class="dashboard-title">Welcome!</h1>
+          <nav class="player-nav">
+            <ul class="player-menu">
+              <li><a href="/player/sessions">My Sessions</a></li>
+              <li><a href="/player/join">Join a Game</a></li>
+              <li><a href="/player/create">Create a Session</a></li>
+              <li><a href="/logout">Sign Out</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <!-- Create a New Session -->
+        <section class="create-session-section">
+          <div class="wrapper">
+            <h2>Create a New Sport Session</h2>
+            <form action="/create-session" method="POST" class="create-session-form">
+              <label for="sport">Select Sport:</label>
+              
+              <label for="teamA">Team A Players:</label>
+              <input type="text" name="teamA" id="teamA" placeholder="Player Names (comma separated)" required>
+      
+              <label for="teamB">Team B Players:</label>
+              <input type="text" name="teamB" id="teamB" placeholder="Player Names (comma separated)" required>
+      
+              <label for="playersNeeded">Additional Players Needed:</label>
+              <input type="number" name="playersNeeded" id="playersNeeded" min="1" max="20" required>
+      
+              <label for="date">Date:</label>
+              <input type="date" name="date" id="date" required>
+      
+              <label for="time">Time:</label>
+              <input type="time" name="time" id="time" required>
+      
+              <label for="venue">Venue:</label>
+              <input type="text" name="venue" id="venue" placeholder="Enter venue details" required>
+      
+              <button type="submit" class="btn create-session-btn">Create Session</button>
+            </form>
+          </div>
+        </section>
+        <section class="available-sessions-section">
+            <div class="wrapper">
+              <h2>Available Sessions to Join</h2>
+                <p>No available sessions to join at the moment.</p>
+                <ul class="sessions-list">
+                    <li class="session-card">
+                      <h3></h3>
+                      <p><strong>Date:</strong>  
+                    | <strong>Time:</strong>    </p>
+                      <p><strong>Venue:</strong> </p>
+                      <p><strong>Slots Available:</strong> </p>
+                      <button onclick="joinSession" class="btn join-btn">Join Session</button>
+                    </li>
+                </ul>
+            </div>
+          </section>
+        </main>
+
+        <footer class="player-footer">
+            <div class="wrapper">
+              <p>&copy; 2025 Game Plan Pro. Your personalized sports scheduler.</p>
+            </div>
+</footer>
+      
+</body>
+</html>

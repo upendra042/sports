@@ -1,0 +1,86 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f5f7;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  
+  .wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .admin-header {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 1.5rem 0;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .admin-nav .admin-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .admin-nav .admin-menu li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+  }
+  
+  .manage-sports-section, .create-session-section, .reports-section {
+    margin: 2rem 0;
+  }
+  
+  .create-sport-form, .create-session-form, .reports-form {
+    margin-top: 1.5rem;
+  }
+  
+  .btn {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .delete-sport-btn {
+    background-color: #e74c3c;
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .reports-table th, .reports-table td {
+    border: 1px solid #bdc3c7;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .reports-table th {
+    background-color: #ecf0f1;
+  }
+  
+  .reports-table td {
+    background-color: #ffffff;
+  }
+  

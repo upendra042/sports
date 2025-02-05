@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admindashboard.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f5f7;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  
+  .wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .admin-header {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 1.5rem 0;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .admin-nav .admin-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .admin-nav .admin-menu li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+  }
+  
+  .manage-sports-section, .create-session-section, .reports-section {
+    margin: 2rem 0;
+  }
+  
+  .create-sport-form, .create-session-form, .reports-form {
+    margin-top: 1.5rem;
+  }
+  
+  .btn {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .delete-sport-btn {
+    background-color: #e74c3c;
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .reports-table th, .reports-table td {
+    border: 1px solid #bdc3c7;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .reports-table th {
+    background-color: #ecf0f1;
+  }
+  
+  .reports-table td {
+    background-color: #ffffff;
+  }
+  
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <div class="wrapper">
+          <h1 class="dashboard-title">Admin Dashboard</h1>
+          <nav class="admin-nav">
+            <ul class="admin-menu">
+              <li><a href="/admin/sports">Manage Sports</a></li>
+              <li><a href="/admin/create-session">Create a Session</a></li>
+              <li><a href="/admin/reports">View Reports</a></li>
+              <li><a href="/login">Sign Out</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <!-- Manage Sports -->
+        <section class="manage-sports-section">
+          <div class="wrapper">
+            <h2>Manage Sports</h2>
+            <form action="/admin/create-sport" method="POST" class="create-sport-form">
+              <label for="sportName">Sport Name:</label>
+              <input type="text" id="sportName" name="sportName" placeholder="Enter new sport name" required>
+              <button type="submit" class="btn create-sport-btn">Add Sport</button>
+            </form>
+            <h3>Available Sports</h3>
+            <ul class="sports-list">
+              
+                <li class="sport-item">
+                  
+                  <button onclick="deleteSport" class="btn delete-sport-btn">Delete</button>
+                </li>
+            </ul>
+          </div>
+        </section>
+     <!-- Create a Sport Session -->
+     <section class="create-session-section">
+        <div class="wrapper">
+          <h2>Create a Sport Session</h2>
+          <form action="/admin/create-session" method="POST" class="create-session-form">
+            <label for="sport">Select Sport:</label>
+            <select name="sport" id="sport" required>
+                <option value=''></option>
+             
+            </select>
+  
+            <label for="teamA">Team A Players:</label>
+            <input type="text" name="teamA" id="teamA" placeholder="Player Names (comma separated)" required>
+  
+            <label for="teamB">Team B Players:</label>
+            <input type="text" name="teamB" id="teamB" placeholder="Player Names (comma separated)" required>
+  
+            <label for="playersNeeded">Additional Players Needed:</label>
+            <input type="number" name="playersNeeded" id="playersNeeded" min="1" max="20" required>
+  
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" required>
+  
+            <label for="time">Time:</label>
+            <input type="time" name="time" id="time" required>
+  
+            <label for="venue">Venue:</label>
+            <input type="text" name="venue" id="venue" placeholder="Enter venue details" required>
+  
+            <button type="submit" class="btn create-session-btn">Create Session</button>
+          </form>
+        </div>
+      </section>
+      <section class="reports-section">
+        <div class="wrapper">
+          <h2>Session Reports</h2>
+          <form action="/admin/view-reports" method="GET" class="reports-form">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+  
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" required>
+  
+            <button type="submit" class="btn view-reports-btn">View Reports</button>
+          </form>
+          <table class="reports-table">
+            <thead>
+              <tr>
+                <th>Sport</th>
+                <th>Sessions Played</th>
+              </tr>
+            </thead>
+            <tbody>
+    <footer class="admin-footer">
+    <div class="wrapper">
+         <p>&copy; 2025 Game Plan Pro. Admin tools for sports management.</p>
+         </div>
+     </footer>
+</body>
+</html>
