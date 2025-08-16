@@ -28,7 +28,7 @@ This is a **sports scheduler website** built using **Node.js, Express.js, Sequel
 
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/sports-scheduler.git
+git clone https://github.com/upendra042/sports-scheduler.git
 cd sports-scheduler
 ```
 
